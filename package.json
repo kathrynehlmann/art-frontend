@@ -1,0 +1,24 @@
+{
+  "name": "art-frontend",
+  "version": "1.0.0",
+  "description": "Frontend of an Art app build using angular, with a Rails API.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kathrynehlmann/art-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kathrynehlmann/art-frontend/issues"
+  },
+  "homepage": "https://github.com/kathrynehlmann/art-frontend#readme"
+}
