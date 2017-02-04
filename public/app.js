@@ -2,6 +2,7 @@ var app = angular.module('acquired', []);
 
 app.controller('mainController', ['$http', function($http) {
   this.message = "controller is working";
+  this.notices = [];
 
   $http({
     method: 'GET',
