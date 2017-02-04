@@ -10,7 +10,13 @@
   <body ng-controller="mainController as ctrl">
     {{ ctrl.message }}
     <div class="container">
-      <main>…</main>
+      <main>
+        <div ng-repeat="artwork in ctrl.artworks" class="artwork">
+          <h3>{{ artwork.title }}</h3>
+          <!-- <img ng-src="{{artwork.links}}" /> -->
+          <p>{{ artwork.blurb }}</p>
+        </div>
+      </main>
       <nav>…</nav>
       <aside>…</aside>
     </div>

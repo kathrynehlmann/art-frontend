@@ -10,6 +10,8 @@ body {
 .container {
   display: flex;
   flex: 1;
+  flex-direction: column;
+
 }
 
 main {
@@ -20,6 +22,13 @@ nav {
   order: -1;
   }
 
-nav, aside {
-  flex: 0 0 12em;
-}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    flex: 1;
+    }
+    nav, aside {
+      flex: 0 0 12em;
+    }
+  }
