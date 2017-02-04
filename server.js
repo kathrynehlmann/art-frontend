@@ -1,7 +1,15 @@
 var express = require('express');
 var app     = express();
-var port    = 3001 || process.env.PORT;
 
+var mongoose = require('mongoose');
+var pg = require('pg')
+
+
+// var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+
+// mongoose.connect(mongoUri);
+
+port = process.env.PORT || 3001;
 
 app.use(express.static('public'));
 
