@@ -1,4 +1,4 @@
-var app = angular.module('acquired', []);
+var app = angular.module('acquired', ['ngRoute', 'appRoutes', 'MainCtrl', 'SettingsCtrl', 'SettingsService']);
 
 app.controller('mainController', ['$http', function($http) {
   // this.message = "controller is working";
