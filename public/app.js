@@ -6,7 +6,7 @@ app.controller('mainController', ['$http', function($http) {
 
   $http({
     method: 'GET',
-    url: 'http://localhost:3000/artworks',
+    url: 'localhost:3000/artworks',
   }).then(function(response) {
     console.log(response);
     this.artworks = response.data;
