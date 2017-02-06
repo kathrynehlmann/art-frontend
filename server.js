@@ -2,7 +2,8 @@ var express = require('express');
 var app     = express();
 
 // var mongoose = require('mongoose');
-var pg = require('pg')
+// this threw an error Cannot find module 'pg':
+// var pg = require('pg')
 
 
 
