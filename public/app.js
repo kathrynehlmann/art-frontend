@@ -6,8 +6,6 @@ app.controller('mainController', ['$http', function($http){
   this.message = "mainController is connected"
   var controller = this;
   console.log(controller);
-  this.url = 'acquired.herokuapp.com'
-
 
 ///requesting the information from the backend, always the localhost address for the port on the backend.
   $http({
