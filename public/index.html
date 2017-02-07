@@ -4,22 +4,22 @@
     <meta charset="utf-8">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" media="screen">
     <title>Welcome to Acquired.</title>
   </head>
   <body ng-controller="mainController as ctrl">
     {{ ctrl.message }}
-    <div class="container">
+    <div class="content">
       <main>
         <div ng-repeat="artwork in ctrl.artworks" class="artwork">
           <h3>{{ artwork.title }}</h3>
-          <!-- <img ng-src="{{artwork.links}}" /> -->
+          <img ng-src="{{artwork.links}}" />
           <p>{{ artwork.blurb }}</p>
         </div>
       </main>
       <nav>…</nav>
       <aside>…</aside>
     </div>
-    <footer>…</footer>
+    <footer><a>©2017 Acquired. Handcrafted by <a href="https://github.com/kathrynehlmann"> Kathryn.</a></a></footer>
   </body>
 </html>
