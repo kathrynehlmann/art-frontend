@@ -2,12 +2,12 @@
   "name": "art-frontend",
   "version": "1.0.0",
   "description": "Frontend of an Art app build using angular, with a Rails API.",
-  "main": "server.js",
+  "main": "app.js",
   "dependencies": {
     "angular": "^1.6.1",
     "body-parser": "^1.16.0",
-    "express": "^4.14.1",
-    },
+    "express": "^4.14.1"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
