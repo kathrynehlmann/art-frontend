@@ -17,8 +17,8 @@ app.controller('mainController', ['$http', function($http) {
 ///requesting the information from the backend, always the localhost address for the port on the backend.
   $http({
     method: 'GET',
-    //change this for heroku deployment to back end heroku URL.
-    url: '//localhost:3000',
+    //change this for heroku deployment to back end heroku URL. acquired-api.herokuapp.com from '//localhost:3000'
+    url: 'acquired-api.herokuapp.com',
   }).then(function(response) {
     console.log(response);
     this.artworks = response.data;
