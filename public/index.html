@@ -19,15 +19,18 @@
           <div class="favorite button">
             <a href="" ng-click>favorite</a>
           </div>
+          <div ng-repeat="user in ctrl.users" class="user">
+            <!-- <img ng-src="{{user.avatar}}" /> -->
+            <p> {{ user.name }}</p>
+          </div>
         </div>
 
       </main>
-      <nav>…</nav>
+      <nav>
+        <div></div>
+      </nav>
       <aside>
-        <div ng-repeat="user in ctrl.users" class="user">
-          <!-- <img ng-src="{{user.avatar}}" /> -->
-          <p> {{ user.name }}</p>
-        </div>
+        <div></div>
       </aside>
     </div>
     <footer><a>©2017 Acquired. Handcrafted by <a href="https://github.com/kathrynehlmann"> Kathryn.</a></a></footer>
