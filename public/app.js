@@ -1,17 +1,12 @@
 var app = angular.module('acquired', []);
 
-app.controller('mainController', ['$http', function($http) {
-  this.message = "controller is working"; // controller is working
-  this.artworks = []; // ger array of artworks json data
-  var controller = this;
-
 
 // this will break when pushed to heroku, need to adjust after deploy
-// app.controller('mainController', ['$http', function($http){
-//   this.message = "mainController is connected"
-//   var controller = this;
-//   console.log(controller);
-//   this.url = 'http://localhost:3000'
+app.controller('mainController', ['$http', function($http){
+  this.message = "mainController is connected"
+  var controller = this;
+  console.log(controller);
+  this.url = 'acquired.herokuapp.com'
 
 
 ///requesting the information from the backend, always the localhost address for the port on the backend.
