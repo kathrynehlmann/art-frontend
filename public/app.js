@@ -3,7 +3,6 @@ var app = angular.module('acquired', []);
 app.controller('mainController', ['$http', function($http) {
   this.message = "controller is working"; // controller is working
   this.artworks = []; // get array of artworks json data
-  var controller = this;
 
 
 // this will break when pushed to heroku, need to adjust after deploy
