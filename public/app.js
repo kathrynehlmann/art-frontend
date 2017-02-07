@@ -4,7 +4,6 @@ app.controller('mainController', ['$http', function($http) {
   this.message = "controller is working"; // controller is working
   this.artworks = []; // get array of artworks json data
 
-
 // this will break when pushed to heroku, need to adjust after deploy
 // app.controller('mainController', ['$http', function($http){
 //   this.message = "mainController is connected"
