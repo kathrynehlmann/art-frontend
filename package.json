@@ -2,7 +2,7 @@
   "name": "art-frontend",
   "version": "1.0.0",
   "description": "Frontend of an Art app build using angular, with a Rails API.",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
     "angular": "^1.6.1",
     "body-parser": "^1.16.0",
