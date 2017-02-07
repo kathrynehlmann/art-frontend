@@ -16,7 +16,7 @@ app.controller('mainController', ['$http', function($http) {
   $http({
     method: 'GET',
     //change this for heroku deployment to back end heroku URL. acquired-api.herokuapp.com from '//localhost:3000'
-    url: 'acquired.herokuapp.com',
+    url: 'https://acquired-api.herokuapp.com/', //backend url only
   }).then(function(response) {
     console.log(response);
     this.artworks = response.data;
