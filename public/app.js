@@ -1,6 +1,6 @@
 var app = angular.module('acquired', []);
 
-app.controller('mainController', ['$http', function($http) {
+app.controller('mainCtrl', ['$http', function($http) {
   this.message = "controller is working"; // controller is working
   this.artworks = []; // get array of artworks json data
 

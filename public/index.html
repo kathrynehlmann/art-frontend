@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" media="screen">
     <title>Welcome to Acquired.</title>
   </head>
-  <body ng-controller="mainController as ctrl">
+  <body ng-controller="mainCtrl as ctrl">
     {{ ctrl.message }}
     <div class="content">
       <main>
@@ -17,13 +17,17 @@
           <img ng-src="{{artwork.links}}" />
           <p>{{ artwork.blurb }}</p>
           <div class="favorite button">
-            <a href="">favorite</a>
+            <a href="" ng-click>favorite</a>
           </div>
         </div>
 
       </main>
       <nav>…</nav>
-      <aside>…</aside>
+      <aside>
+        <div ng-repeat="user in ctrl.users" class="user">
+          <img ng-src="{{artwork.links}}" />
+          <p> {{ user.name }}</p>
+      </aside>
     </div>
     <footer><a>©2017 Acquired. Handcrafted by <a href="https://github.com/kathrynehlmann"> Kathryn.</a></a></footer>
   </body>
