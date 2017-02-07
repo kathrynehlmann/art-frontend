@@ -6,10 +6,6 @@ var port       =  3001 || process.env.PORT;
 
 
 
-// this threw an error Cannot find module 'pg':
-// pg is for heroku postgres, be sure to have this for deployment
-var pg = require('pg')
-
 app.use(express.static('public'));
 
 
