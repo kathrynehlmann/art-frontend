@@ -11,11 +11,16 @@
     {{ ctrl.message }}
     <div class="content">
       <main>
+        <!-- directive to show artwork Title Image and blurb  -->
         <div ng-repeat="artwork in ctrl.artworks" class="artwork">
           <h3>{{ artwork.title }}</h3>
           <img ng-src="{{artwork.links}}" />
           <p>{{ artwork.blurb }}</p>
+          <div class="favorite button">
+            <a href="">favorite</a>
+          </div>
         </div>
+
       </main>
       <nav>…</nav>
       <aside>…</aside>
