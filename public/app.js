@@ -37,22 +37,14 @@ app.controller('mainCtrl', ['$http', function($http) {
    }).then(
      function(response){ //success message if artwork is favorited.
      console.log('Creating Favorite');
-     console.log(response.data.user.favorites[0].object);
-      for(var i=0; i < response.data.favorites.length; i++){
-        this.favorites.push(response.data.users.favorites[i]);
-      };
-      console.log(this.favorites);
-      if(this.favorites.length == response.data.favorites.length){
-        favorites.load = true;
-      }
-      console.log(favorites.load);
+     console.log(response);
    },
     function(response){ //fail message if favorite is not added
       console.log('Warning: favorite was not added!');
       console.log(response);
     }
    )
- }
+ };
 
 
 
