@@ -58,7 +58,7 @@ app.controller('mainCtrl', ['$http', function($http) {
     $http({
       method: 'GET',
       //change this for heroku deployment to back end heroku URL. acquired-api.herokuapp.com from '//localhost:3000'
-      url: 'urlString' + '/users',
+      url: urlString + '/users',
     }).then(function(response) {
       console.log(response);
       this.users = response.data;
