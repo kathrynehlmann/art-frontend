@@ -29,23 +29,23 @@ app.controller('mainCtrl', ['$http', function($http) {
 
 ///-------AJAX calls to Favorites for create  and update ---//
 //
-// //////////////  add a favorite to a user's collection ///////////////
- this.favorites = function(index){
-   $http({
-     method: 'POST',
-     url: 'urlString' + '/users/favorites',
-     data: this.favorites
-   }).then(
-     function(response){ //success message if artwork is favorited.
-     console.log('Creating Favorite');
-     console.log(response);
-   },
-    function(response){ //fail message if favorite is not added
-      console.log('Warning: favorite was not added!');
-      console.log(response);
-      }
-   )
- };
+// // //////////////  add a favorite to a user's collection ///////////////
+//  this.favorites = function(index){
+//    $http({
+//      method: 'POST',
+//      url: 'urlString' + '/users/favorites',
+//      data: this.favorites
+//    }).then(
+//      function(response){ //success message if artwork is favorited.
+//      console.log('Creating Favorite');
+//      console.log(response);
+//    },
+//     function(response){ //fail message if favorite is not added
+//       console.log('Warning: favorite was not added!');
+//       console.log(response);
+//       }
+//    )
+//  };
 //
 // //then a delete function for favorites
 //
@@ -65,49 +65,49 @@ app.controller('mainCtrl', ['$http', function($http) {
       console.log(this.users);
     }.bind(this)); //end request for users
 //
-//     ///////////////////  Create New Users    //////////////////
+// //     ///////////////////  Create New Users    //////////////////
+// //
+//     this.processFormforUser = function() {
+//       console.log('processFormforUser function . . .');
+//       console.log('Form: ', this.formcreateuser);
 //
-    this.processFormforUser = function() {
-      console.log('processFormforUser function . . .');
-      console.log('Form: ', this.formcreateuser);
-
-      //Ajax request to create a user
-      $http({
-        method: 'POST',
-        url: 'urlString' + '/users',
-        data: this.formcreateuser
-      }).then(function(result){
-        console.log('data from server: ', result);
-        this.formcreateuser = {};
-        this.users.unshift(result.data);
-      }.bind(this)); //end user create
-//     } //end form create user
-//
-//       ///////////////////  Delete User    //////////////////
-//
-//       // JS function to delete users
-      this.deleteUsers = function(users) {
-        for (i = 0; i < this.users.length; i++) {
-          if( this.users[i].id == users.id) {
-            this.users.splice(i,1);
-          }
-        }
-      } //end of JS function to delete users
-//
-//       //Delete users from database in Rails
-      this .deleteUsersFromDB = function(userId) {
-        console.log(usersId);
-//
-//       //Ajax requesto to delete an individual user
-      $http({
-        method: 'DELETE',
-        url: 'urlString' + '/users' + users.id,
-      }).then(function(response) {
-        console.log(response);
-        this.deleteUsers(response.data);
-        console.log(this.deleteUsers);
-      });// end request to delete an individual user
-    } //end delete users from database function
+//       //Ajax request to create a user
+//       $http({
+//         method: 'POST',
+//         url: 'urlString' + '/users',
+//         data: this.formcreateuser
+//       }).then(function(result){
+//         console.log('data from server: ', result);
+//         this.formcreateuser = {};
+//         this.users.unshift(result.data);
+//       }.bind(this)); //end user create
+// //     } //end form create user
+// //
+// //       ///////////////////  Delete User    //////////////////
+// //
+// //       // JS function to delete users
+//       this.deleteUsers = function(users) {
+//         for (i = 0; i < this.users.length; i++) {
+//           if( this.users[i].id == users.id) {
+//             this.users.splice(i,1);
+//           }
+//         }
+//       } //end of JS function to delete users
+// //
+// //       //Delete users from database in Rails
+//       this .deleteUsersFromDB = function(userId) {
+//         console.log(usersId);
+// //
+// //       //Ajax requesto to delete an individual user
+//       $http({
+//         method: 'DELETE',
+//         url: 'urlString' + '/users' + users.id,
+//       }).then(function(response) {
+//         console.log(response);
+//         this.deleteUsers(response.data);
+//         console.log(this.deleteUsers);
+//       });// end request to delete an individual user
+//     } //end delete users from database function
 
 
 
