@@ -19,18 +19,23 @@
           <div class="favorite button">
             <a href="" ng-click>favorite</a>
           </div>
-          <!-- <div ng-repeat="user in ctrl.users" class="user"> -->
-            <!-- <img ng-src="{{user.avatar}}" /> -->
-            <!-- <p> {{ user.name }}</p>
-          </div> -->
+          <div ng-repeat="user in ctrl.users" class="user">
+            <img ng-src="{{user.avatar}}" />
+            <p>{{ user.name }}</p>
+          </div>
         </div>
-
       </main>
       <nav>
         <div></div>
       </nav>
       <aside>
-        <div></div>
+        <div>
+          <form ng-submit="ctrl.prcessFormCreateAUser()">
+            <input type="text" ng-model="ctrl.formcreateuser.name"placeholder="Your Name"/>
+            <input type="text" ng-model="ctrl.formcreateuser.image"placeholder="Upload an image via a URL"/>
+            <input type="text" ng-model="ctrl.formcreateuser.email"placeholder="Your Email"/>
+            <input type="text" ng-model="ctrl.formcreateuser.password"placeholder="Your Password"/>
+        </div>
       </aside>
     </div>
     <footer><a>©2017 Acquired. Handcrafted by <a href="https://github.com/kathrynehlmann"> Kathryn.</a></a></footer>
