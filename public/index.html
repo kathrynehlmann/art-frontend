@@ -30,11 +30,13 @@
       </nav>
       <aside>
         <div>
-          <form ng-submit="ctrl.prcessFormCreateAUser()">
+          <form ng-submit="ctrl.processFormForUser()">
             <input type="text" ng-model="ctrl.formcreateuser.name"placeholder="Your Name"/>
-            <input type="text" ng-model="ctrl.formcreateuser.image"placeholder="Upload an image via a URL"/>
+            <input type="text" ng-model="ctrl.formcreateuser.avatar"placeholder="Include a 300X300px image via a URL"/>
             <input type="text" ng-model="ctrl.formcreateuser.email"placeholder="Your Email"/>
             <input type="text" ng-model="ctrl.formcreateuser.password"placeholder="Your Password"/>
+            <input class="submit" type="submit"/>
+          </form>
         </div>
       </aside>
     </div>
