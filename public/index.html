@@ -13,8 +13,8 @@
       <main>
         <!-- directive to show artwork Title Image and blurb  -->
         <div ng-repeat="artwork in ctrl.artworks" class="artwork">
+          <img ng-src="{{artwork._links}}"/>
           <h3>{{ artwork.title }}</h3>
-          <img ng-src="{{artwork.links}}" />
           <p>{{ artwork.blurb }}</p>
           <div class="favorite button">
             <a href="" ng-click>favorite</a>
