@@ -3,12 +3,13 @@ var app = angular.module('acquired', []);
 app.controller('mainCtrl', ['$http', function($http) {
   // this.message = "controller is working"; // controller is working
   this.artworks = []; // get array of artworks json data
-  // this.artwork = [];
-  // this.users = []; //get array of user json data
+  this.artwork = [];
+  this.users = []; //get array of user json data
   this.formcreateuser = {};
-  // this.formeditusers = {};
-  // this.deleteUsers = [];
-  // this.favorites = []; //get a user's array of favorited artworks
+  this.formeditusers = {};
+  this.deleteUsers = [];
+  this.favorites = []; //get a user's array of favorited artworks
+  this.deleteFavorites = [];
 
   var localEnv = true; //change to true if using localhost, change to false if on heroku
   if (localEnv) { var urlString = 'http://localhost:3000/'} else { var urlString = 'https://acquired-api.herokuapp.com/' }
@@ -16,7 +17,7 @@ app.controller('mainCtrl', ['$http', function($http) {
 
 ///requesting the information from the backend, always the localhost address for the port on the backend. This is the GET request that displays the list of artworks from the Rails server.
 
-// ////////////////   request Artworks faker data  - Displaying  ///////////////////
+// ////////////////   request Artworks data  - Displaying  ///////////////////
   $http({
     method: 'GET',
     //change this for heroku deployment to back end heroku URL. acquired-api.herokuapp.com from '//localhost:3000'
@@ -30,10 +31,10 @@ app.controller('mainCtrl', ['$http', function($http) {
 
 
 // ///-------AJAX calls to Users for create update and delete ---//
-//
-//   ///requesting the information from the backend. This is the GET request that displays the list of users from the Rails server.
-//
-//   ///////////////////  request Users - Success in testing   //////////////////
+
+///requesting the information from the backend. This is the GET request that displays the list of users from the Rails server.
+
+//   ///////////////////  request Users - Displaying   //////////////////
     $http({
       method: 'GET',
       url: urlString + '/users',
@@ -44,7 +45,7 @@ app.controller('mainCtrl', ['$http', function($http) {
       console.log(this.users);
     }.bind(this)); //end request for users
 //
-// //     ///////////////////  Create New Users    //////////////////
+// //     ///////////////////  Create New Users  - Displaying  //////////////////
 // //
     this.processFormForUser = function() {
       console.log('processFormForUser function . . .');
@@ -74,7 +75,7 @@ app.controller('mainCtrl', ['$http', function($http) {
       } //end of JS function to delete users
 // // //
 // // //       //Delete users from database in Rails
-      this.deleteUsersFromDB = function(userId) {
+      this.deleteUsersFromDB = function(usersId) {
         console.log(usersId);
 // //
 // //       //Ajax request to to delete an individual user
@@ -97,8 +98,7 @@ app.controller('mainCtrl', ['$http', function($http) {
      method: 'POST',
      url: urlString + '/users/favorites',
      data: this.favorites
-   }).then(
-     function(response){ //success message if artwork is favorited.
+   }).then(function(response){ //success message if artwork is favorited.
      console.log('Creating Favorite');
      console.log(response);
    },
@@ -110,8 +110,29 @@ app.controller('mainCtrl', ['$http', function($http) {
  };
 //
 // //then a delete function for favorites
-//
-//
+// // // // JS function to delete a favortied item
+      this.deleteFavorites = function(favorites) {
+        for (i = 0; i < this.favorites.length; i++) {
+          if( this.favorites[i].id == favorites.id) {
+            this.favorites.splice(i,1);
+          }
+        }
+      } //end of JS function to delete a favorited item
+
+// // //       //Delete users from database in Rails
+      this.deleteFavorites = function(favorites) {
+        console.log(favorites);
+
+// // //Ajax request to to delete a favorite on an artwork.
+      $http({
+        method: 'DELETE',
+        url: urlString + '/favorites' + users.id,
+      }).then(function(response) {
+        console.log(response);
+        this.deleteFavorites(response.data);
+        console.log(this.deleteFavorites);
+      });// end request to delete a favorite
+  } //end delete favorties from database function
 
 
 

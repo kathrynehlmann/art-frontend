@@ -19,10 +19,12 @@
           <div class="favorite button">
             <a href="" ng-click>favorite</a>
           </div>
+          </div>
+          <h3>Cinemagraph Enthusiasts</h3>
           <div ng-repeat="user in ctrl.users" class="user">
             <img ng-src="{{user.avatar}}" />
             <p>{{ user.name }}</p>
-          </div>
+            <button ng-click="ctrl.deleteUsers(users.id)">Delete account</button>
         </div>
       </main>
       <nav>
@@ -32,7 +34,7 @@
         <div>
           <form ng-submit="ctrl.processFormForUser()">
             <input type="text" ng-model="ctrl.formcreateuser.name"placeholder="Your Name"/>
-            <input type="text" ng-model="ctrl.formcreateuser.avatar"placeholder="Include a 300X300px image via a URL"/>
+            <input type="text" ng-model="ctrl.formcreateuser.avatar"placeholder="50X50px image via URL"/>
             <input type="text" ng-model="ctrl.formcreateuser.email"placeholder="Your Email"/>
             <input type="text" ng-model="ctrl.formcreateuser.password"placeholder="Your Password"/>
             <input class="submit" type="submit"/>
