@@ -5,33 +5,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <link rel="stylesheet" href="style.css" media="screen">
+    <link href="https://fonts.googleapis.com/css?family=Arsenal" rel="stylesheet">
     <title>Welcome to Acquired.</title>
   </head>
   <body ng-controller="mainCtrl as ctrl">
     {{ ctrl.message }}
-    <div class="content">
+    <div class="container">
       <main>
         <!-- directive to show artwork Title Image and blurb  -->
-        <div ng-repeat="artwork in ctrl.artworks" class="artwork">
-          <img ng-src="{{artwork._links}}"/>
+        <div ng-repeat="artwork in ctrl.artworks" class="artwork" ng-show="$first">
+          <img class="image" ng-src="{{artwork._links}}"/>
           <h3>{{ artwork.title }}</h3>
           <p>{{ artwork.blurb }}</p>
+          <!-- <h4>If you like this cinemagraph you might like:</h4> -->
+          <!-- <img class="recommend" ng-src="{{artwork.similar_to_artwork_id}}"/> -->
           <div class="favorite button">
-            <a href="" ng-click>favorite</a>
+            <button ng-click="ctrl.favorites(artwork.id)">favorite</button>
           </div>
+          <div class="favorite button">
+            <button ng-click="ctrl.deleteFavorites(deletefav)">remove from favorites</button>
           </div>
-          <h3>Cinemagraph Enthusiasts</h3>
-          <div ng-repeat="user in ctrl.users" class="user">
-            <img ng-src="{{user.avatar}}" />
-            <p>{{ user.name }}</p>
-            <button ng-click="ctrl.deleteUsers(users.id)">Delete account</button>
         </div>
       </main>
+      <!-- <aside>
+      </aside> -->
       <nav>
-        <div></div>
-      </nav>
-      <aside>
+        <h3>Cinemagraph Enthusiasts</h3>
+        <div ng-repeat="user in ctrl.users" class="user">
+          <img ng-src="{{user.avatar}}" />
+          <p>{{ user.name }}</p>
+          <button ng-click="ctrl.deleteUsers(user.id)">Delete account</button>
+        </div>
         <div>
+          <h3>Sign up to share your favorites</h3>
           <form ng-submit="ctrl.processFormForUser()">
             <input type="text" ng-model="ctrl.formcreateuser.name"placeholder="Your Name"/>
             <input type="text" ng-model="ctrl.formcreateuser.avatar"placeholder="50X50px image via URL"/>
@@ -40,8 +46,8 @@
             <input class="submit" type="submit"/>
           </form>
         </div>
-      </aside>
+      </nav>
     </div>
-    <footer><a>©2017 Acquired. Handcrafted by <a href="https://github.com/kathrynehlmann"> Kathryn.</a></a></footer>
   </body>
+  <footer><a>©2017 Acquired. Handcrafted by <a href="https://github.com/kathrynehlmann"> Kathryn.</a></a></footer>
 </html>

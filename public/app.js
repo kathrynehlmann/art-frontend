@@ -5,6 +5,7 @@ app.controller('mainCtrl', ['$http', function($http) {
   this.artworks = []; // get array of artworks json data
   this.artwork = [];
   this.users = []; //get array of user json data
+  this.user = [];
   this.formcreateuser = {};
   this.formeditusers = {};
   this.deleteUsers = [];
@@ -58,45 +59,37 @@ app.controller('mainCtrl', ['$http', function($http) {
         data: this.formcreateuser
       }).then(function(result){
         console.log('data from server: ', result);
+        this.user = result.data;
         this.formcreateuser = {};
         this.users.unshift(result.data);
+        location.reload();
       }.bind(this)); //end user create
     } //end form create user
 
-// // //       ///////////////////  Delete User    //////////////////
-
-// // //       // JS function to delete users
+////////////////////////  Delete User    //////////////////
       this.deleteUsers = function(users) {
-        for (i = 0; i < this.users.length; i++) {
-          if( this.users[i].id == users.id) {
-            this.users.splice(i,1);
-          }
-        }
-      } //end of JS function to delete users
-// // //
-// // //       //Delete users from database in Rails
-      this.deleteUsersFromDB = function(usersId) {
-        console.log(usersId);
-// //
-// //       //Ajax request to to delete an individual user
-      $http({
-        method: 'DELETE',
-        url: urlString + '/users' + users.id,
-      }).then(function(response) {
-        console.log(response);
-        this.deleteUsers(response.data);
-        console.log(this.deleteUsers);
-      });// end request to delete an individual user
-  } //end delete users from database function
+        console.log(this.users); //checking the parameters when the button is clicked
 
+        $http({
+          method: "DELETE",
+          url: urlString + '/users/' + users
+        }).then(function(result){
+          console.log('data from server: ', result);
+          this.deleteUsers = {};
+          this.users.unshift(result.data);
+          location.reload();
+        }.bind(this));
+      } //end of function to delete users
 
 ///-------AJAX calls to Favorites for create  and update ---//
-//
-// // //////////////  add a favorite to a user's collection ///////////////
- this.favorites = function(index){
+/////////////////  add a favorite to a user's collection ///////////////
+ this.favorites = function(artwork){
+   console.log(artwork);
+   console.log(this.user);
+
    $http({
      method: 'POST',
-     url: urlString + '/users/favorites',
+     url: urlString + '/favorites',
      data: this.favorites
    }).then(function(response){ //success message if artwork is favorited.
      console.log('Creating Favorite');
@@ -110,34 +103,23 @@ app.controller('mainCtrl', ['$http', function($http) {
  };
 //
 // //then a delete function for favorites
-// // // // JS function to delete a favortied item
-      this.deleteFavorites = function(favorites) {
-        for (i = 0; i < this.favorites.length; i++) {
-          if( this.favorites[i].id == favorites.id) {
-            this.favorites.splice(i,1);
-          }
-        }
-      } //end of JS function to delete a favorited item
+this.deleteFavorites = function(deletefav) {
+  console.log(this.favorites);
 
-// // //       //Delete users from database in Rails
-      this.deleteFavorites = function(favorites) {
-        console.log(favorites);
-
-// // //Ajax request to to delete a favorite on an artwork.
-      $http({
-        method: 'DELETE',
-        url: urlString + '/favorites' + users.id,
-      }).then(function(response) {
-        console.log(response);
-        this.deleteFavorites(response.data);
-        console.log(this.deleteFavorites);
-      });// end request to delete a favorite
-  } //end delete favorties from database function
-
+  $http({
+    method: "DELETE",
+    url: urlString + '/users/' + users
+  }).then(function(result){
+    console.log('data from server: ', result);
+    this.deleteFavorites = {};
+    this.favorites.unshift(result.data);
+    location.reload();
+  }.bind(this));
+} //end of function to delete favorites
 
 
 }]); //end MainController
 
-// external api request will be updated URLs and Heroku server, as well as rack cors so that the origin matches the frontend url.
+
 
 // url:'https://acquired.herokuapp.com/'
