@@ -12,7 +12,7 @@ app.controller('mainCtrl', ['$http', function($http) {
   this.favorites = []; //get a user's array of favorited artworks
   this.deleteFavorites = [];
 
-  var localEnv = true; //change to true if using localhost, change to false if on heroku
+  var localEnv = false; //change to true if using localhost, change to false if on heroku
   if (localEnv) { var urlString = 'http://localhost:3000/'} else { var urlString = 'https://acquired-api.herokuapp.com/' }
 
 
