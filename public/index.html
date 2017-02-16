@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css" media="screen">
     <link href="https://fonts.googleapis.com/css?family=Arsenal" rel="stylesheet">
     <title>Welcome to Acquired.</title>
@@ -11,43 +13,11 @@
   <body ng-controller="mainCtrl as ctrl">
     {{ ctrl.message }}
     <div class="container">
-      <main>
-        <!-- directive to show artwork Title Image and blurb  -->
-        <div ng-repeat="artwork in ctrl.artworks" class="artwork">
-          <img class="image" ng-src="{{artwork._links}}"/>
-          <h3>{{ artwork.title }}</h3>
-          <p>{{ artwork.blurb }}</p>
-          <!-- <h4>If you like this cinemagraph you might like:</h4> -->
-          <!-- <img class="recommend" ng-src="{{artwork.similar_to_artwork_id}}"/> -->
-          <h3>Cinemagraph Enthusiasts</h3>
-            <div ng-repeat="user in ctrl.users" class="user">
-              <img ng-src="{{user.avatar}}" />
-              <p>{{ user.name }}</p>
-              <button ng-click="ctrl.deleteUsers(user.id)">Delete account</button>
-              <div class="favorite button">
-                <button ng-click="ctrl.favorites(artwork.id, user.id)">favorite this cinemagraph</button>
-              </div>
-              <div class="favorite button">
-                <button ng-click="ctrl.deleteFavorites(deletefav)">remove from favorites</button>
-              </div>
-              <div class="favorite button">
-                <button ng-click="ctrl.showfavorites(user_id)">show user's favorites</button>
-            </div>
-          </div>
-        </div>
-      </main>
-      <!-- <aside>
-      </aside> -->
       <nav>
-        <h3>Cinemagraph Enthusiasts</h3>
-        <div ng-repeat="user in ctrl.users" class="user">
-          <img ng-src="{{user.avatar}}" />
-          <p>{{ user.name }}</p>
-          <button ng-click="ctrl.deleteUsers(user.id)">Delete account</button>
-        </div>
         <div>
+          <div class="logo"><img src="http://wagnermediaworks.com/wp-content/uploads/2017/02/acquired-logo-transparent.png" alt="Acquired Logo"></div>
           <h3>Sign up to share your favorites</h3>
-          <form ng-submit="ctrl.processFormForUser()">
+          <form class="pure-form" ng-submit="ctrl.processFormForUser()">
             <input type="text" ng-model="ctrl.formcreateuser.name"placeholder="Your Name"/>
             <input type="text" ng-model="ctrl.formcreateuser.avatar"placeholder="50X50px image via URL"/>
             <input type="text" ng-model="ctrl.formcreateuser.email"placeholder="Your Email"/>
@@ -56,6 +26,35 @@
           </form>
         </div>
       </nav>
+      <main>
+        <!-- directive to show artwork Title Image and blurb  -->
+        <div ng-repeat="artwork in ctrl.artworks" class="artwork">
+          <h3>{{ artwork.title }}</h3>
+          <img class="image" ng-src="{{artwork._links}}"/>
+          <p>{{ artwork.blurb }}</p>
+          <!-- <h4>If you like this cinemagraph you might like:</h4> -->
+          <!-- <img class="recommend" ng-src="{{artwork.similar_to_artwork_id}}"/> -->
+          <h3>Cinemagraph Enthusiasts</h3>
+            <div ng-repeat="user in ctrl.users" class="user">
+              <img ng-src="{{user.avatar}}" />
+              <p>{{ user.name }}</p>
+              <div class="favorite">
+                <button class="button-xsmall pure-button" ng-click="ctrl.favorites(artwork.id, user.id)">favorite this cinemagraph</button>
+              </div>
+              <div class="favorite">
+                <button class="button-xsmall pure-button" ng-click="ctrl.deleteFavorites(deletefav)">remove from favorites</button>
+              </div>
+              <div class="favorite">
+              <button class="button-xsmall pure-button" ng-click="ctrl.deleteUsers(user.id)">delete account</button>
+              </div>
+              <!-- <div class="favorite button">
+                <button class="pure-button" ng-click="ctrl.showfavorites(user_id)">show user's favorites</button> -->
+            </div>
+          </div>
+        </div>
+      </main>
+      <aside>
+      </aside>
     </div>
   </body>
   <footer><a>©2017 Acquired. Handcrafted by <a href="https://github.com/kathrynehlmann"> Kathryn.</a></a></footer>

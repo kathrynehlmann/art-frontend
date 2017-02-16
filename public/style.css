@@ -1,40 +1,73 @@
 /* for development only - check layout */
-header, div, main, nav, aside, footer {
-  border: 1px solid aliceblue;
+header, div, main, nav, {
+  background-color: white;
 }
 
+nav {
+  font-family: 'Arsenal', sans-serif;
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 50px;
+  width: 1500px;
+  max-width: 1500px;
+}
+
+.logo {
+  display: flex;
+  padding: 5px;
+}
+
+.favorite {
+  display: inline-flex;
+  padding: 2px;
+}
 
 body {
   font-family: 'Arsenal', sans-serif;
   display: flex;
   min-height: 100vh;
-  flex-flow: row wrap;
+  flex-flow: column;
   margin: auto;
+  background-color: #878E88;
 }
 
 .container {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
   margin: auto;
+  background-color: inherit;
 }
 
 .artwork {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   margin: auto;
+  padding: 50px;
+  background-color: #ffffff;
+  max-width: 1500px;
 }
 
 main {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
   margin: auto;
+  background-color: #ffffff;
 }
 
 footer {
   font-family: 'Arsenal', sans-serif;
   display: flex;
+  flex-basis: auto;
   margin: auto;
+  background-color: #878E88;
+  padding: 5px;
 }
+
+
+
+
 
 @media (min-width: 768px) {
   .container {
