@@ -83,14 +83,21 @@ app.controller('mainCtrl', ['$http', function($http) {
 
 ///-------AJAX calls to Favorites for create  and update ---//
 /////////////////  add a favorite to a user's collection ///////////////
- this.favorites = function(artwork){
-   console.log(artwork);
-   console.log(this.user);
+//show routes on the favorites controller and the get request for the favorites controller
+
+ this.favorites = function(artwork, user){
+   console.log(artwork, user);
+   console.log(this.favorites);
 
    $http({
      method: 'POST',
      url: urlString + '/favorites',
-     data: this.favorites
+     data: {
+       user_id:user,
+       artwork_id:artwork
+     }
+
+     //pass in an object that has the correct parameter name and the correct parameter values in order for the favorite to be created. Look at what rails expects. pass in a one if a quantity field is required.
    }).then(function(response){ //success message if artwork is favorited.
      console.log('Creating Favorite');
      console.log(response);
@@ -108,7 +115,7 @@ this.deleteFavorites = function(deletefav) {
 
   $http({
     method: "DELETE",
-    url: urlString + '/users/' + users
+    url: urlString + '/favorite/id' + users
   }).then(function(result){
     console.log('data from server: ', result);
     this.deleteFavorites = {};

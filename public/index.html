@@ -13,17 +13,26 @@
     <div class="container">
       <main>
         <!-- directive to show artwork Title Image and blurb  -->
-        <div ng-repeat="artwork in ctrl.artworks" class="artwork" ng-show="$first">
+        <div ng-repeat="artwork in ctrl.artworks" class="artwork">
           <img class="image" ng-src="{{artwork._links}}"/>
           <h3>{{ artwork.title }}</h3>
           <p>{{ artwork.blurb }}</p>
           <!-- <h4>If you like this cinemagraph you might like:</h4> -->
           <!-- <img class="recommend" ng-src="{{artwork.similar_to_artwork_id}}"/> -->
-          <div class="favorite button">
-            <button ng-click="ctrl.favorites(artwork.id)">favorite</button>
-          </div>
-          <div class="favorite button">
-            <button ng-click="ctrl.deleteFavorites(deletefav)">remove from favorites</button>
+          <h3>Cinemagraph Enthusiasts</h3>
+            <div ng-repeat="user in ctrl.users" class="user">
+              <img ng-src="{{user.avatar}}" />
+              <p>{{ user.name }}</p>
+              <button ng-click="ctrl.deleteUsers(user.id)">Delete account</button>
+              <div class="favorite button">
+                <button ng-click="ctrl.favorites(artwork.id, user.id)">favorite this cinemagraph</button>
+              </div>
+              <div class="favorite button">
+                <button ng-click="ctrl.deleteFavorites(deletefav)">remove from favorites</button>
+              </div>
+              <div class="favorite button">
+                <button ng-click="ctrl.showfavorites(user_id)">show user's favorites</button>
+            </div>
           </div>
         </div>
       </main>
